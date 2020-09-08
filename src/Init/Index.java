@@ -10,7 +10,9 @@ public class Index {
 		
 		UpdateCSV csv = new UpdateCSV();
 		csv.appendAtFirst("Vision", "XXX");
+		csv.filterReport("Vision");
+		
 		csv.appendAtFirst("VSM", "XXX");
+		csv.filterReport("VSM");
 	}
-
 }
