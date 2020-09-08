@@ -9,9 +9,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.logging.Level;
+
+import Init.TMSLogger;
 
 public class UpdateCSV {
-
+	
+	TMSLogger logger;
+	
+	public UpdateCSV() throws SecurityException, IOException {
+		logger = new TMSLogger();
+	}
+	
 	public void appendAtFirst(String fileName, String str) throws IOException {
 
 		String defaultPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\";
@@ -19,35 +28,44 @@ public class UpdateCSV {
 	    BufferedWriter bw=null;
 	    
 		try {
-			// Updates the serial numbers
+		
+																																		/* Updates the serial numbers */
+			
 			File file = new File(defaultPath, fileName + ".csv");
+			logger.info("UpdateCSV.class", "Reading file from N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\" + fileName);
+			
 			File file2 = new File(defaultPath, fileName + "1.csv");
 			 
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(file))) ;
 			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file2)));
 			String line = null;
 			
+			logger.info("UpdateCSV.class", "Line reading started for "+ fileName);
 			for (line = br.readLine(); line != null; line = br.readLine()) {
 				bw.write(str + line + "\n");
 			}	
+			logger.info("UpdateCSV.class", "Line reading ended for "+ fileName);
 			
-			// Close files
+																																		/* Close files */
+			
 			 if(br!=null)
-		            br.close();
-		        if(bw!=null)
-		            bw.close();
+				 br.close();
+			 if(bw!=null)
+				 bw.close();
 		        
-			// Delete old file.
+			 logger.info("UpdateCSV.class", "File closed "+ fileName);
+		        
+			 																															/* Delete old files */
 			if(file.delete()) {
 				file2.renameTo(new File(defaultPath + fileName + ".csv"));
 			}
 			
-			
+			logger.info("UpdateCSV.class", "Append character at first operation completed for " + fileName);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			System.out.println("Chars added at first operation completed!");
+			System.out.println("appendAtFirst compiled successfully");
 		}
 	}
 
