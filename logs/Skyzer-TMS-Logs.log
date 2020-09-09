@@ -1,6 +1,27 @@
-Sep 08, 2020 5:10:16 PM Init.TMSLogger info
-INFO:  -----------------------------------------------------------
-Sep 08, 2020 5:10:16 PM Init.TMSLogger info
-INFO:  --------------------- SKYZER TMS LOGS ---------------------
-Sep 08, 2020 5:10:16 PM Init.TMSLogger info
-INFO:  -----------------------------------------------------------
+Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> appendAtFirst started
+
+Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> appendAtFirst ended
+
+Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> filterReport method started
+
+Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> filterReport method ended
+
+Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> appendAtFirst started
+
+Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> appendAtFirst ended
+
+Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> filterReport method started
+
+Sep 09, 2020 3:58:58 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> filterReport method ended
+
+Sep 09, 2020 3:58:58 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Import successfully!!!!!!!!!!!!
+

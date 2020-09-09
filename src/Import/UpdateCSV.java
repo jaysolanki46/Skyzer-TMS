@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.logging.Level;
+import java.time.LocalDate;
 
 import Init.TMSLogger;
 
@@ -21,78 +21,122 @@ public class UpdateCSV {
 		logger = new TMSLogger();
 	}
 	
-	public void appendAtFirst(String fileName, String str) throws IOException {
-
-		String defaultPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\";
+	public void appendAtFirst(String path, String fileName, String str) throws IOException {
+		
+		logger.info("UpdateCSV.class", "appendAtFirst started");
 		BufferedReader br=null;
 	    BufferedWriter bw=null;
 	    
 		try {
-		
-																																		/* Updates the serial numbers */
-			
-			File file = new File(defaultPath, fileName + ".csv");
-			logger.info("UpdateCSV.class", "Reading file from N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\" + fileName);
-			
-			File file2 = new File(defaultPath, fileName + "1.csv");
-			 
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(file))) ;
+
+			/* Open files */
+			File file = new File(path, fileName + ".csv");
+			File file2 = new File(path, fileName + "1.csv");
+
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file2)));
 			String line = null;
-			
-			logger.info("UpdateCSV.class", "Line reading started for "+ fileName);
+
 			for (line = br.readLine(); line != null; line = br.readLine()) {
 				bw.write(str + line + "\n");
-			}	
-			logger.info("UpdateCSV.class", "Line reading ended for "+ fileName);
-			
-																																		/* Close files */
-			
-			 if(br!=null)
-				 br.close();
-			 if(bw!=null)
-				 bw.close();
-		        
-			 logger.info("UpdateCSV.class", "File closed "+ fileName);
-		        
-			 																															/* Delete old files */
-			if(file.delete()) {
-				file2.renameTo(new File(defaultPath + fileName + ".csv"));
 			}
 			
-			logger.info("UpdateCSV.class", "Append character at first operation completed for " + fileName);
-			
+			/* Close files */
+			if (br != null)
+				br.close();
+			if (bw != null)
+				bw.close();
+
+			/* Delete old files */
+			if (file.delete()) {
+				file2.renameTo(new File(path + fileName + ".csv"));
+			}
+
+			logger.info("UpdateCSV.class", "appendAtFirst ended");
+
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			System.out.println("appendAtFirst compiled successfully");
+			logger.error("UpdateCSV.class", e.getMessage());
 		}
 	}
 
-	public void filterReport(String fileName) throws IOException {
+	public void filterReport(String path, String fileName) throws IOException {
 		
 		try {
+			logger.info("UpdateCSV.class", "filterReport method started");
 			if(!Desktop.isDesktopSupported()) {
-				System.err.println("Not Supported!");
+				logger.info("UpdateCSV.class", "Desktop not supported!");
 				return;
 			}
 			
 			Desktop desktop = Desktop.getDesktop();
 			
-			File file = new File("N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\TMS Import Script 1.0 ("+ fileName +").xlsm");
+			File file = new File(path + "TMS Import Script 1.0 ("+ fileName +").xlsm");
+			
+			/* TMS Import Script 1.0 */
 			if(file.exists())
 				desktop.open(file);
+			Thread.sleep(10000);
 			
-			Thread.sleep(5000);
+			/* Checks whether script is still open */
+			
+			
+			logger.info("UpdateCSV.class", "filterReport method ended");
+			
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			
-			System.out.println("Filter report operation completed!");
+			logger.error("UpdateCSV.class", e.getMessage());
+		}
+	}
+	
+	public String getNewFileName(String fileName) {
+		
+		String fileNameStr = "";
+		
+		LocalDate currentMonthLocalDate = LocalDate.now();
+		int currentDay = currentMonthLocalDate.getDayOfMonth();
+		int currentMonth = currentMonthLocalDate.getMonthValue();
+		int currentYear = currentMonthLocalDate.getYear();
+		String day = "";
+		String month = "";
+		String currentDateStr = "";
+		
+		if(String.valueOf(currentDay).length() < 2) {
+			day = "0" + currentDay;
 		}
 		
+		if(String.valueOf(currentMonth).length() < 2) {
+			month = "0" + currentMonth;
+		}
 		
+		currentDateStr = day + month + currentYear;
 		
+		LocalDate lastMonthLocalDate = currentMonthLocalDate.minusMonths(1);
+		int lastDay = lastMonthLocalDate.getDayOfMonth();
+		int lastMonth = lastMonthLocalDate.getMonthValue();
+		int lastYear = lastMonthLocalDate.getYear();
+		String lastDateStr = "";
+		
+		if(String.valueOf(lastDay).length() < 2) {
+			day = "0" + lastDay;
+		}
+		
+		if(String.valueOf(lastMonth).length() < 2) {
+			month = "0" + lastMonth;
+		}
+		
+		lastDateStr = day + month + lastYear;
+		
+		fileNameStr = fileName + " " + lastDateStr + " to " + currentDateStr;
+		
+		return fileNameStr;
 	}
 
+	public void moveFiles(String sourcePath, String fileName, String destinationPath) {
+			
+		File file = new File(sourcePath, fileName + ".csv");
+		file.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
+	}
+
+	public void taskCompletionLogger() {
+		logger.info("UpdateCSV.class", "Imported successfully!!!!!!!!!!!!");
+	}
 }

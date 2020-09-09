@@ -2,7 +2,6 @@ package Init;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -22,11 +21,11 @@ public class TMSLogger {
 	}
 	
 	public void info(String location, String msg) {
-		 logger.log(Level.INFO, location + " " + msg);
+		 logger.info(location + " >>> " + msg + "\n");
 	}
 	
 	public void error(String location, String msg) {
-		 logger.log(Level.WARNING, location + " " + msg);
+		logger.warning(location + " >>> " + msg + "\n");
 	}
 	
 	
