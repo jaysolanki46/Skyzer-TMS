@@ -133,7 +133,18 @@ public class UpdateCSV {
 	public void moveFiles(String sourcePath, String fileName, String destinationPath) {
 			
 		File file = new File(sourcePath, fileName + ".csv");
-		file.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
+		file.renameTo(new File(sourcePath + getNewFileName(fileName) + ".csv"));
+		
+		/* Remove if already exist */
+		File tempFile = new File(destinationPath, getNewFileName(fileName) + ".csv");
+		
+		if(tempFile.exists()) {
+			tempFile.delete();
+		}
+
+		/* Move file source to destination */
+		File newFile = new File(sourcePath, getNewFileName(fileName) + ".csv");
+		newFile.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
 	}
 
 	public void taskCompletionLogger() {

@@ -1,27 +1,27 @@
-Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+Sep 09, 2020 5:01:17 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> appendAtFirst started
 
-Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+Sep 09, 2020 5:01:17 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> appendAtFirst ended
 
-Sep 09, 2020 3:58:38 PM Init.TMSLogger info
+Sep 09, 2020 5:01:17 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> filterReport method started
 
-Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+Sep 09, 2020 5:01:27 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> filterReport method ended
 
-Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+Sep 09, 2020 5:01:27 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> appendAtFirst started
 
-Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+Sep 09, 2020 5:01:27 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> appendAtFirst ended
 
-Sep 09, 2020 3:58:48 PM Init.TMSLogger info
+Sep 09, 2020 5:01:27 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> filterReport method started
 
-Sep 09, 2020 3:58:58 PM Init.TMSLogger info
+Sep 09, 2020 5:01:38 PM Init.TMSLogger info
 INFO: UpdateCSV.class >>> filterReport method ended
 
-Sep 09, 2020 3:58:58 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> Import successfully!!!!!!!!!!!!
+Sep 09, 2020 5:01:38 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Imported successfully!!!!!!!!!!!!
 
