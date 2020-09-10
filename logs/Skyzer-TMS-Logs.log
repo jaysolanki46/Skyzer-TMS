@@ -1,27 +1,93 @@
-Sep 09, 2020 5:01:17 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> appendAtFirst started
+Sep 10, 2020 12:22:30 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Appending word at first...
 
-Sep 09, 2020 5:01:17 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> appendAtFirst ended
+Sep 10, 2020 12:22:30 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Appending word at first completed...
 
-Sep 09, 2020 5:01:17 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> filterReport method started
+Sep 10, 2020 12:22:30 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Filtering product names...
 
-Sep 09, 2020 5:01:27 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> filterReport method ended
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Filtering product names completed...
 
-Sep 09, 2020 5:01:27 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> appendAtFirst started
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Moving file to destination path...
 
-Sep 09, 2020 5:01:27 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> appendAtFirst ended
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
 
-Sep 09, 2020 5:01:27 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> filterReport method started
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
 
-Sep 09, 2020 5:01:38 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> filterReport method ended
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
 
-Sep 09, 2020 5:01:38 PM Init.TMSLogger info
-INFO: UpdateCSV.class >>> Imported successfully!!!!!!!!!!!!
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Found duplicate file...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Moving file to destination path completed...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Appending word at first...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Appending word at first completed...
+
+Sep 10, 2020 12:22:40 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Filtering product names...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Filtering product names completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Moving file to destination path...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Found duplicate file...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Updating file name completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Moving file to destination path completed...
+
+Sep 10, 2020 12:22:50 PM Init.TMSLogger info
+INFO: UpdateCSV.class >>> Import operation completed....
 

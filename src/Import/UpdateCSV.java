@@ -23,7 +23,7 @@ public class UpdateCSV {
 	
 	public void appendAtFirst(String path, String fileName, String str) throws IOException {
 		
-		logger.info("UpdateCSV.class", "appendAtFirst started");
+		logger.info("UpdateCSV.class", "Appending word at first...");
 		BufferedReader br=null;
 	    BufferedWriter bw=null;
 	    
@@ -52,7 +52,7 @@ public class UpdateCSV {
 				file2.renameTo(new File(path + fileName + ".csv"));
 			}
 
-			logger.info("UpdateCSV.class", "appendAtFirst ended");
+			logger.info("UpdateCSV.class", "Appending word at first completed...");
 
 		} catch (Exception e) {
 			logger.error("UpdateCSV.class", e.getMessage());
@@ -62,7 +62,7 @@ public class UpdateCSV {
 	public void filterReport(String path, String fileName) throws IOException {
 		
 		try {
-			logger.info("UpdateCSV.class", "filterReport method started");
+			logger.info("UpdateCSV.class", "Filtering product names...");
 			if(!Desktop.isDesktopSupported()) {
 				logger.info("UpdateCSV.class", "Desktop not supported!");
 				return;
@@ -80,7 +80,7 @@ public class UpdateCSV {
 			/* Checks whether script is still open */
 			
 			
-			logger.info("UpdateCSV.class", "filterReport method ended");
+			logger.info("UpdateCSV.class", "Filtering product names completed...");
 			
 		} catch (Exception e) {
 			logger.error("UpdateCSV.class", e.getMessage());
@@ -89,8 +89,8 @@ public class UpdateCSV {
 	
 	public String getNewFileName(String fileName) {
 		
+		logger.info("UpdateCSV.class", "Updating file name...");
 		String fileNameStr = "";
-		
 		LocalDate currentMonthLocalDate = LocalDate.now();
 		int currentDay = currentMonthLocalDate.getDayOfMonth();
 		int currentMonth = currentMonthLocalDate.getMonthValue();
@@ -101,10 +101,14 @@ public class UpdateCSV {
 		
 		if(String.valueOf(currentDay).length() < 2) {
 			day = "0" + currentDay;
+		} else {
+			day = String.valueOf(currentDay);
 		}
 		
 		if(String.valueOf(currentMonth).length() < 2) {
 			month = "0" + currentMonth;
+		} else {
+			month = String.valueOf(currentMonth);
 		}
 		
 		currentDateStr = day + month + currentYear;
@@ -127,27 +131,40 @@ public class UpdateCSV {
 		
 		fileNameStr = fileName + " " + lastDateStr + " to " + currentDateStr;
 		
+		logger.info("UpdateCSV.class", "Updating file name completed...");
+		
 		return fileNameStr;
 	}
 
 	public void moveFiles(String sourcePath, String fileName, String destinationPath) {
+		
+		try {
 			
-		File file = new File(sourcePath, fileName + ".csv");
-		file.renameTo(new File(sourcePath + getNewFileName(fileName) + ".csv"));
-		
-		/* Remove if already exist */
-		File tempFile = new File(destinationPath, getNewFileName(fileName) + ".csv");
-		
-		if(tempFile.exists()) {
-			tempFile.delete();
-		}
+			logger.info("UpdateCSV.class", "Moving file to destination path...");
+			
+			File file = new File(sourcePath, fileName + ".csv");
+			file.renameTo(new File(sourcePath + getNewFileName(fileName) + ".csv"));
+			
+			/* Remove if already exist */
+			File tempFile = new File(destinationPath, getNewFileName(fileName) + ".csv");
+			
+			if(tempFile.exists()) {
+				tempFile.delete();
+				logger.info("UpdateCSV.class", "Found duplicate file...");
+			}
 
-		/* Move file source to destination */
-		File newFile = new File(sourcePath, getNewFileName(fileName) + ".csv");
-		newFile.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
+			/* Move file source to destination */
+			File newFile = new File(sourcePath, getNewFileName(fileName) + ".csv");
+			newFile.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
+			
+			logger.info("UpdateCSV.class", "Moving file to destination path completed...");
+		} catch (Exception e) {
+			logger.error("UpdateCSV.class", e.getMessage());
+		}
+		
 	}
 
 	public void taskCompletionLogger() {
-		logger.info("UpdateCSV.class", "Imported successfully!!!!!!!!!!!!");
+		logger.info("UpdateCSV.class", "Import operation completed....");
 	}
 }
