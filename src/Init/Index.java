@@ -2,6 +2,7 @@ package Init;
 
 import java.io.IOException;
 
+import Import.TMSImport;
 import Import.UpdateCSV;
 
 public class Index {
@@ -10,7 +11,7 @@ public class Index {
 	static String visionPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\";
 	static String vsmPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\";
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 
 		UpdateCSV csv = new UpdateCSV();
 	    
@@ -19,6 +20,8 @@ public class Index {
 		csv.filterReport(sourcePath, "Vision");
 		
 		/* Code for selenium automation */
+		new TMSImport("Vision");
+		Thread.sleep(3000);
 		
 		
 		/* Move files to specific location */
@@ -30,7 +33,8 @@ public class Index {
 		csv.filterReport(sourcePath, "VSM");
 		
 		/* Code for selenium automation */
-		
+		new TMSImport("VSM");
+		Thread.sleep(3000);
 		
 		/* Move files to specific location */
 		csv.moveFiles(sourcePath, "VSM", vsmPath);
