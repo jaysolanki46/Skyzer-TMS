@@ -2,6 +2,7 @@ package Init;
 
 import java.io.IOException;
 
+import Import.Email;
 import Import.TMSImport;
 import Import.UpdateCSV;
 
@@ -16,29 +17,28 @@ public class Index {
 		UpdateCSV csv = new UpdateCSV();
 	    
 	    /* ----- Vision ----- */
-	    csv.appendAtFirst(sourcePath, "Vision", "XXX");
-		csv.filterReport(sourcePath, "Vision");
+	    //csv.appendAtFirst(sourcePath, "Vision", "XXX");
+		//csv.filterReport(sourcePath, "Vision");
 		
 		/* Code for selenium automation */
-		new TMSImport("Vision");
-		Thread.sleep(3000);
-		
+		//new TMSImport("Vision");
+		//Thread.sleep(3000);
 		
 		/* Move files to specific location */
-		csv.moveFiles(sourcePath, "Vision", visionPath);
-		
+		//csv.moveFiles(sourcePath, "Vision", visionPath);
 		
 		 /* ----- VSM ----- */
-		csv.appendAtFirst(sourcePath, "VSM", "XXX");
-		csv.filterReport(sourcePath, "VSM");
+		//csv.appendAtFirst(sourcePath, "VSM", "XXX");
+		//csv.filterReport(sourcePath, "VSM");
 		
 		/* Code for selenium automation */
-		new TMSImport("VSM");
-		Thread.sleep(3000);
+		//new TMSImport("VSM");
+		//Thread.sleep(3000);
 		
 		/* Move files to specific location */
-		csv.moveFiles(sourcePath, "VSM", vsmPath);
+		//csv.moveFiles(sourcePath, "VSM", vsmPath);
 		
 		csv.taskCompletionLogger();
+		new Email();
 	}
 }

@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="N:/Jay/Software/Driver seleniums/selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
 	<classpathentry kind="lib" path="N:/Jay/Software/Driver seleniums/selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="lib" path="N:/Jay/Software/Log4J/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="N:/Jay/Software/mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="N:/Jay/Software/activation-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
