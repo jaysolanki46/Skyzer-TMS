@@ -21,7 +21,7 @@ public class TMSImport {
 		try {
 			logger = new TMSLogger();
 			
-			logger.info(this.toString(), "Chrome driver initialization is in process...");
+			logger.info(this.getClass().getName(), "Chrome driver initialization is in process...");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("start-maximized");
 			options.setExperimentalOption("useAutomationExtension", false);
@@ -51,10 +51,10 @@ public class TMSImport {
 			driver.findElement(By.name("I_Upload")).sendKeys("N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\"+ fileName +".csv");
 			Thread.sleep(3000);
 
-			logger.info(this.toString(), fileName + " file import is in process...");
+			logger.info(this.getClass().getName(), fileName + " file import is in process...");
 			driver.findElement(By.xpath("//input[@onclick=\'CheckSubmission( );\']")).click();
 			Thread.sleep(60000);
-			logger.info(this.toString(), fileName + " file imported sucessfully ...");
+			logger.info(this.getClass().getName(), fileName + " file imported sucessfully ...");
 			
 			driver.close();
 			
