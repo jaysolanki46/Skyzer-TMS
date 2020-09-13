@@ -39,10 +39,11 @@ public class Index {
 		csv.moveFiles(sourcePath, "VSM", vsmPath);
 		
 		/* ---- End process log ---- */
-		csv.taskCompletionLogger();
+		csv.taskCompletionLogger(); 
 		
 		/* ---- Sending confirmation email to Skyzer ---- */
 		new Email();
 		
+		// Test commit
 	}
 }
