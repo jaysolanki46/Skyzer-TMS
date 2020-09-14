@@ -12,23 +12,50 @@ import javax.mail.internet.MimeMultipart;
 import Init.TMSLogger;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.util.Properties;
 
 public class Email {
 	
 	TMSLogger logger;
+	String to = "jay.solanki@skyzer.co.nz";
+    String from = "skyzertms@gmail.com";
+    String logFile = System.getProperty("user.dir") + "\\logs\\Skyzer-TMS-Logs.log";
+    String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + new DateRange().getDateRangeStr() + ".csv";
+    String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
+    String bodyText = "";
+    final String username = "skyzertms@gmail.com";
+    final String password = "Skynet123";
+    Properties props;
+    Session session;
 
     public Email() throws SecurityException, IOException {
     	
     	logger = new TMSLogger();
-    	logger.error(this.getClass().getName(), "Confirmation email is on way...");
-    	String to = "support@skyzer.co.nz";
+    	props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "25");
+        
+        session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                   protected PasswordAuthentication getPasswordAuthentication() {
+                      return new PasswordAuthentication(username, password);
+                   }
+                });
+    }
+    
+    public void success() throws UnsupportedEncodingException {
+    	
+    	logger.info(this.getClass().getName(), "Confirmation email is on way...");
+    	String to = "jay.solanki@skyzer.co.nz";
         String from = "skyzertms@gmail.com";
         
         String logFile = System.getProperty("user.dir") + "\\logs\\Skyzer-TMS-Logs.log";
-        String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + getDateRangeStr() + ".csv";
-        String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + getDateRangeStr() + ".csv";
+        String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + new DateRange().getDateRangeStr() + ".csv";
+        String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
         		
         String bodyText = "";
 
@@ -53,7 +80,7 @@ public class Email {
 
            message.setFrom(new InternetAddress(from, "TMS Automation"));
            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-           message.setSubject("Daily Import (" + getDateRangeStr() + ")");
+           message.setSubject("Daily Import (" + new DateRange().getDateRangeStr() + ")");
           
            BodyPart messageBodyPart = new MimeBodyPart();
            bodyText = "<center><h1 style=\"color:#0076BE\">Skyzer Daily Import</h1></center>" + 
@@ -77,74 +104,64 @@ public class Email {
            DataSource logFileSource = new FileDataSource(logFile);
            messageBodyPart = new MimeBodyPart();
            messageBodyPart.setDataHandler(new DataHandler(logFileSource));
-           messageBodyPart.setFileName("Skyzer TMS Process Logs " + getDateRangeStr() + ".log");
+           messageBodyPart.setFileName("Skyzer TMS Process Logs " + new DateRange().getDateRangeStr() + ".log");
            multipart.addBodyPart(messageBodyPart);
            
            DataSource visionSource = new FileDataSource(visionFile);
            messageBodyPart = new MimeBodyPart();
            messageBodyPart.setDataHandler(new DataHandler(visionSource));
-           messageBodyPart.setFileName("Vision " + getDateRangeStr() + ".csv");
+           messageBodyPart.setFileName("Vision " + new DateRange().getDateRangeStr() + ".csv");
            multipart.addBodyPart(messageBodyPart);
 
            DataSource vsmSource = new FileDataSource(vsmFile);
            messageBodyPart = new MimeBodyPart();
            messageBodyPart.setDataHandler(new DataHandler(vsmSource));
-           messageBodyPart.setFileName("VSM " + getDateRangeStr() + ".csv");
+           messageBodyPart.setFileName("VSM " + new DateRange().getDateRangeStr() + ".csv");
            multipart.addBodyPart(messageBodyPart);
 
            message.setContent(multipart);
            Transport.send(message);
-           logger.error(this.getClass().getName(), "Email sent...");
+           logger.info(this.getClass().getName(), "Email sent...");
     
         } catch (MessagingException e) {
         	logger.error(this.getClass().getName(), e.getMessage());
         }
-    }	  
+    }
 	
-    public String getDateRangeStr() {
-		
-		String subject = "";
-		LocalDate currentMonthLocalDate = LocalDate.now();
-		int currentDay = currentMonthLocalDate.getDayOfMonth();
-		int currentMonth = currentMonthLocalDate.getMonthValue();
-		int currentYear = currentMonthLocalDate.getYear();
-		String day = "";
-		String month = "";
-		String currentDateStr = "";
-		
-		if(String.valueOf(currentDay).length() < 2) {
-			day = "0" + currentDay;
-		} else {
-			day = String.valueOf(currentDay);
-		}
-		
-		if(String.valueOf(currentMonth).length() < 2) {
-			month = "0" + currentMonth;
-		} else {
-			month = String.valueOf(currentMonth);
-		}
-		
-		currentDateStr = day + month + currentYear;
-		
-		LocalDate lastMonthLocalDate = currentMonthLocalDate.minusMonths(1);
-		int lastDay = lastMonthLocalDate.getDayOfMonth();
-		int lastMonth = lastMonthLocalDate.getMonthValue();
-		int lastYear = lastMonthLocalDate.getYear();
-		String lastDateStr = "";
-		
-		if(String.valueOf(lastDay).length() < 2) {
-			day = "0" + lastDay;
-		}
-		
-		if(String.valueOf(lastMonth).length() < 2) {
-			month = "0" + lastMonth;
-		}
-		
-		lastDateStr = day + month + lastYear;
-		
-		subject = lastDateStr + " to " + currentDateStr;
-		
-		return subject;
-	}
+    public void failed(String nextScheduledMsg) throws UnsupportedEncodingException {
+    	
+        try {
+           Message message = new MimeMessage(session);
 
+           message.setFrom(new InternetAddress(from, "TMS Automation"));
+           message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+           message.setSubject("Failed Daily Import (" + new DateRange().getDateRangeStr() + ")");
+          
+           BodyPart messageBodyPart = new MimeBodyPart();
+           bodyText = "<center><h1 style=\"color:#0076BE\">Skyzer Daily Import</h1> <h1 style=\"color:#FF0000\">(Failed)</h1></center>" + 
+           		"<p>Hi Team,</p>" + 
+           		"<p>The system has failed the importing process for today for the Sybiz Vision.</p>" + 
+           		"<p>Please export Vision and VSM report from the Sybiz Vision.</p>" +
+           		"<p>"+ nextScheduledMsg +"</p>" +
+           		"<p>Thank you.</p>" + 
+           		"<span>Sincerely,</span><br/>" +
+           		"<span style=\"color:#7d8185;font-weight:bold\">Skyzer Technologies</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">E:</span><span style=\"color:#0076BE;font-weight:bold\"> support@skyzer.co.nz</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">P:</span><span style=\"color:#7d8185;font-weight:bold\"> +64 9 259 0322</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">A:</span><span style=\"color:#7d8185;font-weight:bold\"> 269 Mount smart Road, Onehunga, Auckland 1061</span><br/>" +
+           		"<span style=\"color:#0076BE;font-weight:bold\">W: </span><a href='www.skyzer.co.nz' style='color:#0076BE;font-weight:bold'>www.skyzer.co.nz</a></span><br/>" + 
+           		"<br/>" +
+           		"<p style='color:#97999c'>[This is an automatically generated email, please do not reply]</p>";
+           messageBodyPart.setContent(bodyText, "text/html");
+           Multipart multipart = new MimeMultipart();
+           multipart.addBodyPart(messageBodyPart);
+          
+           message.setContent(multipart);
+           Transport.send(message);
+    
+        } catch (MessagingException e) {
+        	logger.error(this.getClass().getName(), e.getMessage());
+        }
+    }
+    
 }

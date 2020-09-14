@@ -23,6 +23,7 @@ public class TMSImport {
 			
 			logger.info(this.getClass().getName(), "Chrome driver initialization is in process...");
 			ChromeOptions options = new ChromeOptions();
+			options.setHeadless(true);
 			options.addArguments("start-maximized");
 			options.setExperimentalOption("useAutomationExtension", false);
 			options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
