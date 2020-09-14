@@ -44,6 +44,5 @@ public class Index {
 		/* ---- Sending confirmation email to Skyzer ---- */
 		new Email();
 		
-		// Test commit
 	}
 }

@@ -23,8 +23,8 @@ public class Email {
     	
     	logger = new TMSLogger();
     	logger.error(this.getClass().getName(), "Confirmation email is on way...");
-    	String to = "jay.solanki@skyzer.co.nz";
-        String from = "jaysolanki46@gmail.com";
+    	String to = "support@skyzer.co.nz";
+        String from = "skyzertms@gmail.com";
         
         String logFile = System.getProperty("user.dir") + "\\logs\\Skyzer-TMS-Logs.log";
         String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + getDateRangeStr() + ".csv";
@@ -32,8 +32,8 @@ public class Email {
         		
         String bodyText = "";
 
-        final String username = "jaysolanki46@gmail.com";
-        final String password = "Sisterbro46@";
+        final String username = "skyzertms@gmail.com";
+        final String password = "Skynet123";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -51,7 +51,7 @@ public class Email {
         try {
            Message message = new MimeMessage(session);
 
-           message.setFrom(new InternetAddress(from));
+           message.setFrom(new InternetAddress(from, "TMS Automation"));
            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
            message.setSubject("Daily Import (" + getDateRangeStr() + ")");
           
