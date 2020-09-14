@@ -26,7 +26,7 @@ public class Email {
     String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
     String bodyText = "";
     final String username = "skyzertms@gmail.com";
-    final String password = "Skynet123";
+    final String password = "";
     Properties props;
     Session session;
 
@@ -50,30 +50,6 @@ public class Email {
     public void success() throws UnsupportedEncodingException {
     	
     	logger.info(this.getClass().getName(), "Confirmation email is on way...");
-    	String to = "jay.solanki@skyzer.co.nz";
-        String from = "skyzertms@gmail.com";
-        
-        String logFile = System.getProperty("user.dir") + "\\logs\\Skyzer-TMS-Logs.log";
-        String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + new DateRange().getDateRangeStr() + ".csv";
-        String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
-        		
-        String bodyText = "";
-
-        final String username = "skyzertms@gmail.com";
-        final String password = "Skynet123";
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "25");
-
-        Session session = Session.getInstance(props,
-           new javax.mail.Authenticator() {
-              protected PasswordAuthentication getPasswordAuthentication() {
-                 return new PasswordAuthentication(username, password);
-              }
-           });
 
         try {
            Message message = new MimeMessage(session);

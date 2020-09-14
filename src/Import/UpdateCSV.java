@@ -23,7 +23,7 @@ public class UpdateCSV {
 	
 	public void appendAtFirst(String path, String fileName, String str) throws IOException {
 		
-		logger.info(this.getClass().getName(), "Appending word at first...");
+		logger.info(this.getClass().getName(), "Appending word at first...!");
 		BufferedReader br=null;
 	    BufferedWriter bw=null;
 	    
@@ -52,7 +52,7 @@ public class UpdateCSV {
 				file2.renameTo(new File(path + fileName + ".csv"));
 			}
 
-			logger.info(this.getClass().getName(), "Appending word at first completed...");
+			logger.info(this.getClass().getName(), "Appending word at first completed...!");
 
 		} catch (Exception e) {
 			logger.error(this.getClass().getName(), e.getMessage());
@@ -62,9 +62,9 @@ public class UpdateCSV {
 	public void filterReport(String path, String fileName) throws IOException {
 		
 		try {
-			logger.info(this.getClass().getName(), "Filtering product names...");
+			logger.info(this.getClass().getName(), "Filtering product names...!");
 			if(!Desktop.isDesktopSupported()) {
-				logger.info(this.getClass().getName(), "Desktop not supported!");
+				logger.info(this.getClass().getName(), "Desktop not supported...!");
 				return;
 			}
 			
@@ -80,7 +80,7 @@ public class UpdateCSV {
 			/* Checks whether script is still open */
 			
 			
-			logger.info(this.getClass().getName(), "Filtering product names completed...");
+			logger.info(this.getClass().getName(), "Filtering product names completed...!");
 			
 		} catch (Exception e) {
 			logger.error(this.getClass().getName(), e.getMessage());
@@ -131,7 +131,7 @@ public class UpdateCSV {
 		
 		fileNameStr = fileName + " " + lastDateStr + " to " + currentDateStr;
 		
-		logger.info(this.getClass().getName(), "Updating file name completed...");
+		logger.info(this.getClass().getName(), "Updating file name completed...!");
 		
 		return fileNameStr;
 	}
@@ -140,7 +140,7 @@ public class UpdateCSV {
 		
 		try {
 			
-			logger.info(this.getClass().getName(), "Moving file to destination path...");
+			logger.info(this.getClass().getName(), "Moving file to destination path...!");
 			
 			File file = new File(sourcePath, fileName + ".csv");
 			file.renameTo(new File(sourcePath + getNewFileName(fileName) + ".csv"));
@@ -157,7 +157,7 @@ public class UpdateCSV {
 			File newFile = new File(sourcePath, getNewFileName(fileName) + ".csv");
 			newFile.renameTo(new File(destinationPath + getNewFileName(fileName) + ".csv"));
 			
-			logger.info(this.getClass().getName(), "Moving file to destination path completed...");
+			logger.info(this.getClass().getName(), "Moving file to destination path completed...!");
 		} catch (Exception e) {
 			logger.error(this.getClass().getName(), e.getMessage());
 		}
@@ -165,6 +165,6 @@ public class UpdateCSV {
 	}
 
 	public void taskCompletionLogger() {
-		logger.info(this.getClass().getName(), "Import operation completed....");
+		logger.info(this.getClass().getName(), "Import operation completed....!");
 	}
 }

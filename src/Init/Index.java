@@ -2,6 +2,8 @@ package Init;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import Import.DateRange;
 import Import.Email;
@@ -56,11 +58,16 @@ public class Index {
 			
 			File isVisionImported = new File(visionPath, "Vision " + new DateRange().getDateRangeStr() + ".csv");
 			File isVSMImported = new File(vsmPath, "VSM " + new DateRange().getDateRangeStr() + ".csv");
-			
+			SimpleDateFormat formate = new SimpleDateFormat("a");
+			String amPm = formate.format(new Date());
+			 
 			if(!isVisionImported.exists() && !isVSMImported.exists()) {
-				email.failed("Next TMS import scheduled today at 6:00PM");
-			} else {
-				System.out.println("Already done!");
+				
+				if(amPm.equals("am"))
+					email.failed("Next TMS import scheduled at 6:00 PM.");
+				else
+					email.failed("Next TMS import scheduled at 10:00 AM.");
+
 			}
 		}
 		
