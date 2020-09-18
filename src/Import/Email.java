@@ -19,14 +19,14 @@ import java.util.Properties;
 public class Email {
 	
 	TMSLogger logger;
-	String to = "jay.solanki@skyzer.co.nz";
+	String to = "support@skyzer.co.nz";
     String from = "skyzertms@gmail.com";
     String logFile = System.getProperty("user.dir") + "\\logs\\Skyzer-TMS-Logs.log";
     String visionFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\Vision " + new DateRange().getDateRangeStr() + ".csv";
     String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
     String bodyText = "";
     final String username = "skyzertms@gmail.com";
-    final String password = "";
+    final String password = "*****";
     Properties props;
     Session session;
 
