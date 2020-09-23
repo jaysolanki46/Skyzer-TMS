@@ -8,12 +8,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
 import Init.TMSLogger;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDate;
 import java.util.Properties;
 
 public class Email {
@@ -26,7 +23,7 @@ public class Email {
     String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
     String bodyText = "";
     final String username = "skyzertms@gmail.com";
-    final String password = "*****";
+    final String password = "Skynet123";
     Properties props;
     Session session;
 
@@ -110,7 +107,7 @@ public class Email {
            Message message = new MimeMessage(session);
 
            message.setFrom(new InternetAddress(from, "TMS Automation"));
-           message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+           message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("jay.solanki@skyzer.co.nz")); // Change here after success
            message.setSubject("Failed Daily Import (" + new DateRange().getDateRangeStr() + ")");
           
            BodyPart messageBodyPart = new MimeBodyPart();
@@ -119,6 +116,41 @@ public class Email {
            		"<p>The system has failed the importing process for today for the Sybiz Vision.</p>" + 
            		"<p>Please export Vision and VSM report from the Sybiz Vision.</p>" +
            		"<p>"+ nextScheduledMsg +"</p>" +
+           		"<p>Thank you.</p>" + 
+           		"<span>Sincerely,</span><br/>" +
+           		"<span style=\"color:#7d8185;font-weight:bold\">Skyzer Technologies</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">E:</span><span style=\"color:#0076BE;font-weight:bold\"> support@skyzer.co.nz</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">P:</span><span style=\"color:#7d8185;font-weight:bold\"> +64 9 259 0322</span><br/>" + 
+           		"<span style=\"color:#0076BE;font-weight:bold\">A:</span><span style=\"color:#7d8185;font-weight:bold\"> 269 Mount smart Road, Onehunga, Auckland 1061</span><br/>" +
+           		"<span style=\"color:#0076BE;font-weight:bold\">W: </span><a href='www.skyzer.co.nz' style='color:#0076BE;font-weight:bold'>www.skyzer.co.nz</a></span><br/>" + 
+           		"<br/>" +
+           		"<p style='color:#97999c'>[This is an automatically generated email, please do not reply]</p>";
+           messageBodyPart.setContent(bodyText, "text/html");
+           Multipart multipart = new MimeMultipart();
+           multipart.addBodyPart(messageBodyPart);
+          
+           message.setContent(multipart);
+           Transport.send(message);
+    
+        } catch (MessagingException e) {
+        	logger.error(this.getClass().getName(), e.getMessage());
+        }
+    }
+    
+    public void secondUpdateEmail() throws UnsupportedEncodingException {
+    	
+        try {
+           Message message = new MimeMessage(session);
+
+           message.setFrom(new InternetAddress(from, "TMS Automation"));
+           message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("jay.solanki@skyzer.co.nz"));
+           message.setSubject("Double Check Daily Import (" + new DateRange().getDateRangeStr() + ")");
+          
+           BodyPart messageBodyPart = new MimeBodyPart();
+           bodyText = "<center><h1 style=\"color:#0076BE\">Skyzer Daily Import</h1> <h1 style=\"color:#FF0000\">(Second check)</h1></center>" + 
+           		"<p>Hi Jay,</p>" + 
+           		"<p></p>" + 
+           		"<p>All done for today.</p>" +
            		"<p>Thank you.</p>" + 
            		"<span>Sincerely,</span><br/>" +
            		"<span style=\"color:#7d8185;font-weight:bold\">Skyzer Technologies</span><br/>" + 

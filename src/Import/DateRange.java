@@ -38,10 +38,14 @@ public class DateRange {
 		
 		if(String.valueOf(lastDay).length() < 2) {
 			day = "0" + lastDay;
+		} else {
+			day = String.valueOf(lastDay);
 		}
 		
 		if(String.valueOf(lastMonth).length() < 2) {
 			month = "0" + lastMonth;
+		} else {
+			month = String.valueOf(lastMonth);
 		}
 		
 		lastDateStr = day + month + lastYear;

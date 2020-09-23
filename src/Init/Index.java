@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import Import.DateRange;
 import Import.Email;
 import Import.TMSImport;
@@ -12,9 +11,9 @@ import Import.UpdateCSV;
 
 public class Index {
 
-	static String sourcePath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\";
-	static String visionPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\";
-	static String vsmPath = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\";
+	static String sourcePath = "\\N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\";
+	static String visionPath = "\\N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\Vision\\";
+	static String vsmPath = "\\N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\";
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -64,10 +63,11 @@ public class Index {
 			if(!isVisionImported.exists() && !isVSMImported.exists()) {
 				
 				if(amPm.equals("am"))
-					email.failed("Next TMS import scheduled at 6:00 PM.");
+					email.failed("Next TMS import scheduled at 6:00 PM." + "Path:" + isVisionImported.getPath().toString());
 				else
-					email.failed("Next TMS import scheduled at 10:00 AM.");
-
+					email.failed("Next TMS import scheduled at 10:00 AM." + "Path:" + isVisionImported.getPath().toString());
+			} else {
+				email.secondUpdateEmail();
 			}
 		}
 		
