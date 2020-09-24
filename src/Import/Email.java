@@ -23,7 +23,7 @@ public class Email {
     String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
     String bodyText = "";
     final String username = "skyzertms@gmail.com";
-    final String password = "Skynet123";
+    final String password = "***";
     Properties props;
     Session session;
 
