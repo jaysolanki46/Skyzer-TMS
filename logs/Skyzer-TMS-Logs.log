@@ -1,0 +1,111 @@
+Oct 05, 2020 11:49:00 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Appending word at first...!
+
+Oct 05, 2020 11:49:00 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Appending word at first completed...!
+
+Oct 05, 2020 11:49:00 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Filtering product names...!
+
+Oct 05, 2020 11:49:10 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Filtering product names completed...!
+
+Oct 05, 2020 11:49:10 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> Chrome driver initialization is in process...
+
+Oct 05, 2020 11:49:34 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> Vision file import is in process...
+
+Oct 05, 2020 11:51:00 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> Vision file imported sucessfully ...
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Moving file to destination path...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Moving file to destination path completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Appending word at first...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Appending word at first completed...!
+
+Oct 05, 2020 11:51:03 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Filtering product names...!
+
+Oct 05, 2020 11:51:13 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Filtering product names completed...!
+
+Oct 05, 2020 11:51:13 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> Chrome driver initialization is in process...
+
+Oct 05, 2020 11:51:30 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> VSM file import is in process...
+
+Oct 05, 2020 11:52:38 AM Init.TMSLogger info
+INFO: Import.TMSImport >>> VSM file imported sucessfully ...
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Moving file to destination path...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name...
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Updating file name completed...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Moving file to destination path completed...!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.UpdateCSV >>> Import operation completed....!
+
+Oct 05, 2020 11:52:41 AM Init.TMSLogger info
+INFO: Import.Email >>> Confirmation email is on way...
+
+Oct 05, 2020 11:52:49 AM Init.TMSLogger info
+INFO: Import.Email >>> Email sent...
+

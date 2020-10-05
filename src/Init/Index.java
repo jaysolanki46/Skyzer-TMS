@@ -36,8 +36,13 @@ public class Index {
 				int minute = now.get(Calendar.MINUTE);
 				int second = now.get(Calendar.SECOND);
 				
-				if((hour == 13 || hour == 16) && (minute == 4 && second == 0)) {
+				if((hour == 10 || hour == 16) && (minute == 00 && second == 0)) {
 					try {
+						if(now.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY ||
+								now.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY ||
+								now.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY ||
+								now.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY ||
+								now.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY)
 						process();
 					} catch (SecurityException | IOException | InterruptedException e) {
 						e.printStackTrace();
@@ -92,9 +97,9 @@ public class Index {
 		if(!isVisionImported.exists() && !isVSMImported.exists()) {
 			
 			if(amPm.equals("am"))
-				email.failed("Next TMS import scheduled at 6:00 PM." + "Path:" + isVisionImported.getPath().toString());
+				email.failed("Next TMS import scheduled at 4:00 PM.");
 			else
-				email.failed("Next TMS import scheduled at 10:00 AM." + "Path:" + isVisionImported.getPath().toString());
+				email.failed("Next TMS import scheduled at 10:00 AM.");
 		} else {
 			email.secondUpdateEmail();
 		}
