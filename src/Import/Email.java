@@ -23,7 +23,7 @@ public class Email {
     String vsmFile = "N:\\AAPAYMENTS\\Daily Imports\\New Vision_ VSM\\VSM\\VSM " + new DateRange().getDateRangeStr() + ".csv";
     String bodyText = "";
     final String username = "skyzertms@gmail.com";
-    final String password = "***";
+    final String password = "Skynet123";
     Properties props;
     Session session;
 
@@ -97,6 +97,7 @@ public class Email {
            logger.info(this.getClass().getName(), "Email sent...");
     
         } catch (MessagingException e) {
+        	e.printStackTrace();
         	logger.error(this.getClass().getName(), e.getMessage());
         }
     }

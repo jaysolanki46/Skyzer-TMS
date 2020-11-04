@@ -35,8 +35,8 @@ public class Index {
 				int hour = now.get(Calendar.HOUR_OF_DAY);
 				int minute = now.get(Calendar.MINUTE);
 				int second = now.get(Calendar.SECOND);
-				
-				if((hour == 10 || hour == 16) && (minute == 00 && second == 0)) {
+				System.err.println(minute + ":" + second);
+				if((hour == 10 || hour == 16) && (minute == 0 && second == 0)) {
 					try {
 						if(now.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY ||
 								now.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY ||
@@ -56,6 +56,7 @@ public class Index {
 	}
 	
 	private static void success() throws SecurityException, IOException, InterruptedException {
+		
 		UpdateCSV csv = new UpdateCSV();
 	    
 	    /* ----- Vision ----- */
@@ -96,7 +97,7 @@ public class Index {
 		 
 		if(!isVisionImported.exists() && !isVSMImported.exists()) {
 			
-			if(amPm.equals("am"))
+			if(amPm.equals("am") || amPm == "am")
 				email.failed("Next TMS import scheduled at 4:00 PM.");
 			else
 				email.failed("Next TMS import scheduled at 10:00 AM.");
