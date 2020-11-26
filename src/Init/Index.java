@@ -3,9 +3,10 @@ package Init;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -92,12 +93,15 @@ public class Index {
 		
 		File isVisionImported = new File(visionPath, "Vision " + new DateRange().getDateRangeStr() + ".csv");
 		File isVSMImported = new File(vsmPath, "VSM " + new DateRange().getDateRangeStr() + ".csv");
-		SimpleDateFormat formate = new SimpleDateFormat("a");
-		String amPm = formate.format(new Date());
+		
+		 ZoneId zone = ZoneId.of("Pacific/Auckland");
+	     LocalTime localTime = LocalTime.now(zone);
+	     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("a");
+	     String amPm = localTime.format(dateTimeFormatter);
 		 
 		if(!isVisionImported.exists() && !isVSMImported.exists()) {
 			
-			if(amPm.equals("am") || amPm == "am")
+			 if(amPm.equalsIgnoreCase("am"))
 				email.failed("Next TMS import scheduled at 4:00 PM.");
 			else
 				email.failed("Next TMS import scheduled at 10:00 AM.");
