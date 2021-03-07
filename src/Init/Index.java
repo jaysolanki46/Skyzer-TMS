@@ -37,7 +37,7 @@ public class Index {
 				int minute = now.get(Calendar.MINUTE);
 				int second = now.get(Calendar.SECOND);
 				System.err.println(minute + ":" + second);
-				if((hour == 10 || hour == 16) && (minute == 0 && second == 0)) {
+				if((hour == 12 || hour == 16) && (minute == 49 && second == 0)) {
 					try {
 						if(now.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY ||
 								now.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY ||
