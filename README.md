@@ -1,7 +1,7 @@
 # 🖥 User Posts
 
 ## 🎙 Introduction
-It is automation, designed to automate skyzer sales and service records to be uploaded on the production server.
+It is automation, designed to automate skyzer sales and service records to make them available on the production server.
 
 ## 🚀 Technologies Used
 <table>
